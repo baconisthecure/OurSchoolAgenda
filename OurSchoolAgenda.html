@@ -4,6 +4,7 @@
 </head>
 
 <body>        
+     
     <nav class="navbar navbar-default">     
         <div class="container">    
             <div class="navbar-header">
@@ -19,16 +20,18 @@
             </div>
 
             <div class="collapse nav navbar-collapse" id="collapsemenu">
-            <ul class="nav navbar-nav">                  
+                <ul class="nav navbar-nav">                  
                     <li class="" ><a href="classInfo.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Class Information</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Calendar</a></li>
                     <li><a href="threads.html"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Threads</a></li>
 
                     <li><a href="#"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Notifications</a></li>                                            
-            </ul>  
-                 
-            <button type="button" class="btn btn-default navbar-btn navbar-right">{{>loginButtons}}</button>
-           </div>
+                </ul>  
+                <ul class="nav navbar-nav navbar-right">
+                    {{> loginButtons}} <!-- here -->
+                </ul>
+
+            </div>
         </div>
     </nav>
 
@@ -72,52 +75,29 @@
 
                 </div>
                 <div class="col-md-2 col-lg-4">
-
-                    <aside>
-                        <h1>Class List</h1>
-                        <div>
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                sort<span class="caret"></span></button>
-
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Most recent</a></li>
-                                <li><a href="#">Most frequent</a></li>
-                                <li><a href="#">Alphabetical (A-Z)</a></li>
-                                <li><a href="#">Alphabetical (Z-A)</a></li>
-                            </ul>
-                        </div>
-
-                        <section>
-                          <article class="student">
-                                Erica
-                            </article>
-                            <article class="student-notice">
-                                Evangeline <span class="badge pull-right">3</span>    
-                            </article>
-                            <article class="student">
-                                Isla 
-                            </article>
-                            <article class="student-notice">
-                                Harrison <span class="badge pull-right">1</span>                       
-                            </article>
-                            <article class="student-notice">
-                                Liliana <span class="badge pull-right">2</span>
-                            </article>
-                            <article class="student">
-                                Myles
-                            </article>
-                        </section>
-                    </aside>
-                </div>
+                    
+                    <section>            
+                        <aside>
+                            <h1>Class List</h1>
+                            {{#each students}}
+                                {{> student}}
+                            {{/each}}
+                        </aside>
+                    </section>
+           
+                 </div>
 
             </div>
-        </div>
+        </div> 
 
         
 </body>
 
 <template name="student">
-    {{}}
+    <article class="student">          
+        {{name}}
+    </article>
+    
 
 </template>
 

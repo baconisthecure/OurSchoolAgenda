@@ -1,14 +1,15 @@
+Students = new Mongo.Collection("students");
+
 if (Meteor.isClient) {
-  // This code only runs on the client
+  // This code only runs on  the client
   Template.body.helpers({
-    students: function () {
-      if (Session.get("studentSort") == 'alphabetical') {
-        // If hide completed is checked, filter tasks
-        return Students.find({}, {sort: {name: 1}});
-      } else {
+    students: function () {   
         // Otherwise, return all of the tasks
-        return Students.find({}, {sort: {name: -1}});
-      }
+        return Students.find({});
+      
+    },
+    numberStudents: function(){
+     return Students.find().size();   
     }
   });
     

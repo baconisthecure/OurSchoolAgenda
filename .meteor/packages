@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 twbs:bootstrap
 fortawesome:fontawesome
 accounts-password
+ian:accounts-ui-bootstrap-3
