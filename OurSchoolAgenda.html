@@ -1,0 +1,127 @@
+<head>
+     
+    <title>ParentCommunicator</title>
+</head>
+
+<body>        
+    <nav class="navbar navbar-default">     
+        <div class="container">    
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsemenu" aria-expanded="false">
+                <span class="sr-only">Toggle navigation </span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                ParentCommunicator
+                </a>
+            </div>
+
+            <div class="collapse nav navbar-collapse" id="collapsemenu">
+            <ul class="nav navbar-nav">                  
+                    <li class="" ><a href="classInfo.html"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Class Information</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Calendar</a></li>
+                    <li><a href="threads.html"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Threads</a></li>
+
+                    <li><a href="#"><span class="glyphicon glyphicon-flag" aria-hidden="true"></span> Notifications</a></li>                                            
+            </ul>  
+                 
+            <button type="button" class="btn btn-default navbar-btn navbar-right">{{>loginButtons}}</button>
+           </div>
+        </div>
+    </nav>
+
+        <div class="container">
+        
+                    <div class="jumbotron">
+              
+                <h1>Tori's First Grade Class</h1>
+                Welcome to your class.   This is the class information page where you can go to find information about your class such as..... 
+               
+            </div>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-xs-12 col-md-10 col-lg-8">
+
+
+                    <h2>First time class setup <span class="label label-primary">new</span></h2>
+                    <p class="lead">Lets set up your class with a few simple steps</p>
+                    <p>Salami brisket beef tail, meatloaf filet mignon alcatra shank corned beef tongue strip steak. Short loin brisket tri-tip, venison bresaola drumstick sausage tail leberkas shank spare ribs. Kevin pork chop corned beef, turkey pork meatloaf ham prosciutto frankfurter sirloin spare ribs.</p>
+
+
+                    <h3>Load class list</h3>
+                    <section>
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="active"><a href="#">Import File</a></li>
+                            <li role="presentation"><a href="#">Enter Names</a></li>
+                            <li role="presentation"><a href="#">Scan Document</a></li>
+                        </ul>
+
+                        <p>Bacon ipsum dolor amet bacon beef shoulder alcatra pork loin andouille t-bone frankfurter. Shankle venison ball tip ham hock bresaola. Leberkas meatball pork chop ham hock salami biltong shank tenderloin kevin shoulder pork belly shankle. Jowl fatback beef ribs t-bone alcatra beef. </p>
+                    </section>
+                    <h3>Set Schedule</h3>
+
+                    <form>
+                        <p>First Day of School:
+                            <input type="date" name="schoolStart" ></p>
+                            <p>Last Day of School:
+                        <input type="date" name="schoolStart" ></p>
+                    </form>
+
+                </div>
+                <div class="col-md-2 col-lg-4">
+
+                    <aside>
+                        <h1>Class List</h1>
+                        <div>
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                sort<span class="caret"></span></button>
+
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="#">Most recent</a></li>
+                                <li><a href="#">Most frequent</a></li>
+                                <li><a href="#">Alphabetical (A-Z)</a></li>
+                                <li><a href="#">Alphabetical (Z-A)</a></li>
+                            </ul>
+                        </div>
+
+                        <section>
+                          <article class="student">
+                                Erica
+                            </article>
+                            <article class="student-notice">
+                                Evangeline <span class="badge pull-right">3</span>    
+                            </article>
+                            <article class="student">
+                                Isla 
+                            </article>
+                            <article class="student-notice">
+                                Harrison <span class="badge pull-right">1</span>                       
+                            </article>
+                            <article class="student-notice">
+                                Liliana <span class="badge pull-right">2</span>
+                            </article>
+                            <article class="student">
+                                Myles
+                            </article>
+                        </section>
+                    </aside>
+                </div>
+
+            </div>
+        </div>
+
+        
+</body>
+
+<template name="student">
+    {{}}
+
+</template>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
