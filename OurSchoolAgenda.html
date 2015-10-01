@@ -71,9 +71,17 @@
                             <input type="date" name="schoolStart" ></p>
                             <p>Last Day of School:
                         <input type="date" name="schoolStart" ></p>
+                        
+                        
                     </form>
 
+<!--                    test upload-->
+                    <form name="uploadForm">
+                        <input id="fileInput" type="file" multiple="multiple"> 
+                    </form>
+                    {{>images}}
                 </div>
+                
                 <div class="col-md-2 col-lg-4">
                     
                     <section>            
@@ -95,7 +103,7 @@
 
 <template name="student">
     <article class="student">          
-        {{name}}
+        {{firstName}} {{lastName}}
     </article>
     
 
@@ -104,4 +112,18 @@
 <template name="hello">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="images">
+	<div id="images">
+        <P>Files</P>
+		{{#each images}}
+			2
+              <p>Original name: {{this.name}}</p>
+              <p>Original extension: {{this.extension}}</p>
+              <p>Original type: {{this.type}}</p>
+              <p>Original size: {{this.size}}</p>
+
+		{{/each}}
+	</div>
 </template>

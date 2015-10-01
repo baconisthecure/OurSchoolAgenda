@@ -1,5 +1,6 @@
 Students = new Mongo.Collection("students");
 
+
 if (Meteor.isClient) {
   // This code only runs on  the client
   Template.body.helpers({
@@ -15,6 +16,14 @@ if (Meteor.isClient) {
     
      
     Template.body.events({
+       
+        'change #fileInput': function (event) {
+            FS.Utility.eachFile(event, function(file) {
+                console.log(file);
+                Images.insert(file);
+            });
+            $("form")[0].reset();
+       },
         "submit .new-task": function (event) {
 
             console.log(event);
@@ -44,7 +53,12 @@ if (Meteor.isClient) {
     "click .delete": function () {
       Meteor.call("deleteTask", this._id);
     }
-  });
+  }); 
+    
+    
+Template.images.images = function() {
+	return Images.find();
+};
       Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });
