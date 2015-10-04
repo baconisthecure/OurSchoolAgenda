@@ -24,3 +24,7 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 kadira:flow-router
 okgrow:analytics
+harrison:papa-parse
+cfs:standard-packages
+cfs:filesystem
+cfs:gridfs
