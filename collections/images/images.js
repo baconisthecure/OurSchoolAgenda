@@ -1,9 +1,7 @@
-Stores = {};
-Stores.images = new FS.Store.GridFS("images");
 
 //Create globally scoped Images collection.
 Images = new FS.Collection("images", {
-    stores: [Stores.images],
+    stores: [new FS.Store.GridFS("images")],
     filter: {
         maxSize: 10485760, //in bytes
         allow: {

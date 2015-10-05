@@ -1,14 +1,13 @@
-Stores = {};
-Stores.images = new FS.Store.GridFS("images");
+
 
 //Create globally scoped Images collection.
-Images = new FS.Collection("images", {
-    stores: [Stores.images],
+ClassList = new FS.Collection("classLists", {
+    stores: [new FS.Store.GridFS("classLists")],
     filter: {
         maxSize: 10485760, //in bytes
         allow: {
-            contentTypes: ['image/*'],
-            extensions: ['png', 'jpg', 'jpeg', 'gif']
+            contentTypes: ['text/csv'],
+            extensions: ['csv']
         },
         onInvalid: function (message) {
             if(Meteor.isClient){
@@ -22,7 +21,7 @@ Images = new FS.Collection("images", {
 
 
 //Use allow to control insert, update, remove and download. In this case we will just allow them all.
-Images.allow({
+ClassList.allow({
     insert: function(userId, file) {
         return true;
     },
@@ -41,7 +40,7 @@ Images.allow({
 //If we're on the server publish the collection, otherwise we are on the client and we should subscribe to the publication.
 if(Meteor.isServer){
 
-    Meteor.publish('images', function () {
+    Meteor.publish('classLists', function () {
         /*Uncomment this and comment out returning the cursor to see publication issue*/
 
         // var self = this;
@@ -69,5 +68,5 @@ if(Meteor.isServer){
     });
 
 }else{
-    Meteor.subscribe('images');
+    Meteor.subscribe('classLists');
 }

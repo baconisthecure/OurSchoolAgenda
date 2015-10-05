@@ -17,13 +17,7 @@ if (Meteor.isClient) {
      
     Template.body.events({
        
-        'change #fileInput': function (event) {
-            FS.Utility.eachFile(event, function(file) {
-                console.log(file);
-                Images.insert(file);
-            });
-            $("form")[0].reset();
-       },
+        
         "submit .new-task": function (event) {
 
             console.log(event);
@@ -45,6 +39,17 @@ if (Meteor.isClient) {
         }   
     });
     
+Template.classUploader.events({
+'change .fileInput': function (event) {
+            FS.Utility.eachFile(event, function(file) {
+                console.log(file);
+                ClassList.insert(file);
+            });
+            
+       }
+
+});    
+    
    Template.task.events({
     "click .toggle-checked": function () {
       // Set the checked property to the opposite of its current value
@@ -59,6 +64,11 @@ if (Meteor.isClient) {
 Template.images.images = function() {
 	return Images.find();
 };
+    
+Template.classList.classList = function() {
+	return ClassList.find();
+};
+    
       Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
   });

@@ -76,9 +76,8 @@
                     </form>
 
 <!--                    test upload-->
-                    <form name="uploadForm">
-                        <input id="fileInput" type="file" multiple="multiple"> 
-                    </form>
+                 
+                    {{> classUploader}}
                     {{>images}}
                 </div>
                 
@@ -105,14 +104,27 @@
     <article class="student">          
         {{firstName}} {{lastName}}
     </article>
-    
-
 </template>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="classUploader">
+    <form class="">
+        <input  type="file" name="classFilesPicks" class="fileInput" multiple>
+    </form> 
 </template>
+
+<template name="clastLists">
+	<div id="clastLists">
+        <P>Files</P>
+		{{#each classLists}}			
+              <p>Original name: {{this.classLists}}</p>
+              <p>Original extension: {{this.extension}}</p>
+              <p>Original type: {{this.type}}</p>
+              <p>Original size: {{this.size}}</p>
+
+		{{/each}}
+	</div>
+</template>
+
 
 <template name="images">
 	<div id="images">
