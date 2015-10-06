@@ -2,7 +2,7 @@
 
 //Create globally scoped Images collection.
 ClassList = new FS.Collection("classLists", {
-    stores: [new FS.Store.GridFS("classLists")],
+    stores: [new FS.Store.FileSystem("classLists",{path:"~/uploads"})],
     filter: {
         maxSize: 10485760, //in bytes
         allow: {
@@ -40,33 +40,13 @@ ClassList.allow({
 //If we're on the server publish the collection, otherwise we are on the client and we should subscribe to the publication.
 if(Meteor.isServer){
 
-    Meteor.publish('classLists', function () {
-        /*Uncomment this and comment out returning the cursor to see publication issue*/
+    Meteor.publish('classLists', function (userID) {
 
-        // var self = this;
-
-        // var handle = Images.find().observe({
-        //     added: function (document) {
-        //         self.added('images', document._id, document);
-        //     },
-        //     changed: function (document) {
-        //         self.changed('images', document._id, document);
-        //     },
-        //     removed: function (document) {
-        //         self.removed('images', document._id);
-        //     }
-        // });
-
-        // self.onStop(function () {
-        //     handle.stop();
-        // });
-
-        /*Comment this out and Uncomment manual publishing to see publication issue*/
-
-        return Images.find();
+        return ClassList.find();
 
     });
 
 }else{
+    console.log("This is my subscription");
     Meteor.subscribe('classLists');
 }

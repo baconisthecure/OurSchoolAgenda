@@ -15,85 +15,53 @@ if (Meteor.isClient) {
   });
     
      
-    Template.body.events({
-       
-        
-        "submit .new-task": function (event) {
+Template.body.events({
 
-            console.log(event);
-            // Prevent default browser form submit
-          event.preventDefault();
 
-          // Get value from form element
-          var text = event.target.text.value;
+    "submit .new-task": function (event) {
 
-          // Insert a task into the collection
-          Meteor.call("addTask",text); 
+        console.log(event);
+        // Prevent default browser form submit
+      event.preventDefault();
 
-          // Clear form
-          event.target.text.value = "";
-              },
-        "change .hide-completed input": function (event) {
-          Session.set("hideCompleted", event.target.checked);
-        
-        }   
-    });
+      // Get value from form element
+      var text = event.target.text.value;
+
+      // Insert a task into the collection
+      Meteor.call("addTask",text); 
+
+      // Clear form
+      event.target.text.value = "";
+      },
+    
+    "change .hide-completed input": function (event) {
+      Session.set("hideCompleted", event.target.checked);
+
+    }   
+});
     
 Template.classUploader.events({
 'change .fileInput': function (event) {
-            FS.Utility.eachFile(event, function(file) {
-                console.log(file);
+            FS.Utility.eachFile(event, function(file) {               
                 ClassList.insert(file);
             });
             
        }
 
-});    
-    
-   Template.task.events({
-    "click .toggle-checked": function () {
-      // Set the checked property to the opposite of its current value
-      Meteor.call("setChecked", this._id, ! this.checked);
-    },
-    "click .delete": function () {
-      Meteor.call("deleteTask", this._id);
-    }
-  }); 
-    
+});        
+
     
 Template.images.images = function() {
 	return Images.find();
 };
     
-Template.classList.classList = function() {
+Template.classLists.classLists = function() {
+    console.log("in here");
 	return ClassList.find();
 };
-    
-      Accounts.ui.config({
+
+Accounts.ui.config({
     passwordSignupFields: "USERNAME_ONLY"
-  });
+});
     
 }
-
-
-Meteor.methods({
-  addTask: function (text) {
-    // Make sure the user is logged in before inserting a task
-    if (! Meteor.userId()) {
-      throw new Meteor.Error("not-authorized");
-    }
- 
-    Tasks.insert({
-      text: text,
-      createdAt: new Date(),
-      owner: Meteor.userId(),
-      username: Meteor.user().username
-    });
-  },
-  deleteTask: function (taskId) {
-    Tasks.remove(taskId);
-  },
-  setChecked: function (taskId, setChecked) {
-    Tasks.update(taskId, { $set: { checked: setChecked} });
-  }
-});

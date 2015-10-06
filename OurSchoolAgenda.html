@@ -78,7 +78,7 @@
 <!--                    test upload-->
                  
                     {{> classUploader}}
-                    {{>images}}
+                    {{> classLists}}
                 </div>
                 
                 <div class="col-md-2 col-lg-4">
@@ -112,11 +112,13 @@
     </form> 
 </template>
 
-<template name="clastLists">
-	<div id="clastLists">
-        <P>Files</P>
-		{{#each classLists}}			
-              <p>Original name: {{this.classLists}}</p>
+<template name="classLists">
+	<div id="classLists">
+        <H1>Files</H1>
+        Andrew Belo is here
+		{{#each classLists}}	
+            <p>File </p>
+              <p>Original name: {{this.filename}}</p>
               <p>Original extension: {{this.extension}}</p>
               <p>Original type: {{this.type}}</p>
               <p>Original size: {{this.size}}</p>
