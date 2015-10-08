@@ -1,0 +1,19 @@
+<template name="studentProfile">    
+    <section>
+        <div class="container">
+            <h2>{{nickName}}</h2>
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-6">
+                    <p> {{firstName}} {{lastName}} likes to be called {{nickName}} </p>
+                    <p>{{age}} years old with {{daysToBirthday}} on {{birthday}}</p>
+                
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-6">                    
+                    <p>Mother is {{motherFirstName}} {{motherLastName}}</p>
+                    <p>Father is {{fatherFirstName}} {{fatherLastName}}</p>
+                    <p>Sister is {{sisterFirstName}} {{sisterLastName}} in {{sisterClass}} at {{sisterSchool}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

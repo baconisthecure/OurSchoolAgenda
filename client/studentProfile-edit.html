@@ -1,0 +1,24 @@
+<template name="studentProfile">    
+    <section>
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-xs-12 col-md-6 col-lg-6">
+                     <form>
+                        <input type="text" name="firstName" value="First Name"> 
+                        <input type="text" name="lastName" value="Last Name"> 
+                        <p>{{age}} years old with {{daysToBirthday}} on {{birthday}}</p>
+                     </form>
+                
+                </div>
+                <div class="col-xs-12 col-md-6 col-lg-6">   
+                    <form>
+                        <p>Mother is {{motherFirstName}} {{motherLastName}}</p>
+                        <p>Father is {{fatherFirstName}} {{fatherLastName}}</p>
+                        <p>Sister is {{sisterFirstName}} {{sisterLastName}} in {{sisterClass}} at {{sisterSchool}}</p>
+                     </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>

@@ -1,5 +1,3 @@
-Students = new Mongo.Collection("students");
-
 
 if (Meteor.isClient) {
   // This code only runs on  the client
@@ -40,6 +38,9 @@ Template.body.events({
     }   
 });
     
+Template.classUploader.helper({
+
+});    
 Template.classUploader.events({
 'change .fileInput': function (event) {
             FS.Utility.eachFile(event, function(file) {               
