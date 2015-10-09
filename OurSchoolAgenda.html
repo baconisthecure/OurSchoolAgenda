@@ -44,7 +44,7 @@
                
             </div>
         </div>
-        <div class="content container">
+        <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-md-10 col-lg-8">
 
@@ -77,8 +77,8 @@
 
 <!--                    test upload-->
                  
-                    {{> classUploader}}
-                    {{> classLists}}
+                    {{> studentProfileEdit}}
+                    
                 </div>
                 
                 <div class="col-md-2 col-lg-4">
@@ -114,8 +114,7 @@
 
 <template name="classLists">
 	<div id="classLists">
-        <H1>Files</H1>
-        Andrew Belo is here
+        <H1>Files</H1>        
 		{{#each classLists}}	
             <p>File </p>
               <p>Original name: {{this.filename}}</p>
